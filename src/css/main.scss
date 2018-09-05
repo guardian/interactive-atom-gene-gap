@@ -13,144 +13,280 @@
 
 .interactive-wrapper {
 
-	background-color: #121212;
-	color: #fff;
-	vertical-align: top;
+    background-color: #121212;
+    color: #fff;
+    vertical-align: top;
 
-	h2 {
-		font-size: 30px;
-	}
-	p {
-		font-size: 14px;
-		margin: 0;
-	}
+    h1 {
+    	font-size: 50px;
+    	font-family: $f-serif-headline;
+    	top: -25px;
+    	display: block;
+    	position: relative;
+    }
 
-	.gv-button {
-		background-color: #545454;
-		border-radius: 20px;
-		height: 20px;
-		width: auto;
-		display: inline-block;
-		padding: 5px 10px;
-		cursor: pointer;
-		span {
-		}
-	}
-
-.gv-header {
-	//background: #ff0000;
-	//height: 300px;
-	position: relative;
-	vertical-align: top;
-	.gv-header-text {
-		padding-bottom: 20px;
-		margin-top: -50px;
-	}
-	.gv-header-background {
-		width: 100%;
-		height: 400px;
-		background-image: url('<%= path %>/assets/imgs/header-1.png');
-		background-position: center;
-		background-size: cover;
-	}
-	
-}
-
-.gv-content {
-	vertical-align: top;
-	background: #00ff00;
-	//height: 300px;
-	font-size: 0;
-
-	h2 {
-		font-size: 30px;
-	}
-	p {
-		font-size: 14px;
-		margin: 0;
-	}
-
-	.gv-content-section {
-		border-top: 1px solid #dcdcdc;
-	}
+    h2 {
+        font-size: 30px;
+        padding: 0;
+        margin: 0;
+        font-family: $f-serif-headline;
 
 
-	.gv-cards {
-		vertical-align: top;
-		padding-bottom: 20px;
-		//padding-left: 10px;
+    }
+    p {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        font-family: $f-serif-text;
+    }
 
-		.gv-card:last-of-type {
+    .gv-button {
+        background-color: #545454;
+        border-radius: 20px;
+        height: 20px;
+        width: auto;
+        display: inline-block;
+        padding: 4px 10px;
+        cursor: pointer;
+        color: #fff;
+        position: relative;
+        margin-top: 20px;
+        span {
+            font-size: 14px;
+            font-family:$f-sans-serif-text;
+            font-weight: 600;
+            vertical-align: top;
+            line-height: 23px;
+        }
 
-			.gv-card-graphic {
-				&:after {
-				display: none;
-				border-left: none;
-			}
-			}
+        svg {
+        	vertical-align: top;
+        	margin-top: -1px;
+        }
+    }
 
-		}
-	}
+    .gv-header {
+        //background: #ff0000;
+        //height: 300px;
+        position: relative;
+        vertical-align: top;
+        z-index: 2;
+        .gv-header-text {
+            padding-bottom: 20px;
+            margin-top: -50px;
+            padding-left: 0;
+             @include mq(mobileLandscape) {
+            	padding: 0 10px 40px 10px;
+            }
+        }
+        .gv-header-background {
+            width: 100%;
+            height: 250px;
+            background-image: url('<%= path %>/assets/imgs/header-1.png');
+            background-position: 30%;
+            background-size: cover;
+            @include mq(tablet) {
+            	//background-position: 30%;
+            	height: 400px;
+            }
+            @include mq(desktop) {
+            	background-position: center;
+            }
+        }
+    }
 
-	.gv-card {
-		width: 220px;
-		background: #121212;
-		margin: 10px 10px 0 10px;
-		display: inline-block;
-		vertical-align: top;
+    .gv-content {
+        vertical-align: top;
+        //background: #00ff00; //height: 300px;
+        font-size: 0;
 
-		&.gv-film-card {
-			height: 350px;
-			.gv-card-graphic {
-				height: 295px;
-			}
-		}
+        h2 {
+            font-size: 30px;
+             @include mq(mobileLandscape) {
+            	margin: 0 10px 0 10px;
+            }
+              @include mq(leftCol) {
+            	margin: 0 10px 0 0;
+            }
+            
+        }
+        p {
+            //font-size: 14px;
+            @include mq(mobileLandscape) {
+            	margin: 0 10px 0 10px;
+            }
+              @include mq(leftCol) {
+            	margin: 0 10px 0 0;
+            }
+        }
 
-		&.gv-podcast-card {
-			height: 300px;
-			.gv-card-graphic {
-				height: 220px;
-			}
-		}
+        .gv-content-section {
+            border-top: 1px solid #646464;
+        }
 
-		.gv-card-graphic {
-			width: 100%;
-			position: relative;
-			//background: #767676;
-			cursor: pointer;
 
-			img {
-				width: 100%;
-			}
+        .gv-cards {
+            vertical-align: top;
+            padding-bottom: 20px; //padding-left: 10px;
+            .gv-card:last-of-type {
 
-			&:after {
-				position: absolute;
-				right: -10px;
-				top: 0;
-				height: 100%;
-				content: "";
-				display: block;
-				border-left: 1px solid #ff0000;
-			}
-		}
-		.gv-card-footer {
-			width: 100%;
+                margin-right: 0;
 
-			span {
-				font-size: 14px;
-			}
-		}
-	}
-}
+                .gv-card-graphic {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
 
-.gv-footer {
-	background: #0000ff;
-	//height: 300px;
-	font-size: 14px;
+            .gv-card:nth-child(2n) {
 
-	.gv-footer-section {
-		width: 500px;
-	}
-}
+                margin-right: 0;
 
+                .gv-card-graphic {
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                @include mq(phablet) {
+                    margin-right: 10px;
+
+                    .gv-card-graphic {
+                        &:after {
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            .gv-card:nth-child(4n) {
+
+                margin-right: 0;
+
+                .gv-card-graphic {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .gv-card {
+
+            background: #121212;
+            margin: 10px 10px 0 10px;
+            display: inline-block;
+            vertical-align: top;
+
+            &:nth-of-type(odd) {
+            	margin-left: 0;
+            }
+
+            &:nth-of-type(even) {
+            	margin-right: 0;
+            }
+
+            width: calc(50% - 10px);
+
+            @include mq(mobileLandscape) {
+                &:nth-of-type(odd) {
+            	margin-left: 10px;
+            	}
+
+            	&:nth-of-type(even) {
+            	margin-right: 10px;
+            	}
+            	width: calc(50% - 20px);
+            }
+
+            @include mq(phablet) {
+                  width: calc(25% - 20px);
+            }
+
+            @include mq(desktop) {
+
+                //width: 220px;
+
+                &.gv-film-card {
+                    //height: 350px;
+                    .gv-card-graphic {
+                        //height: 295px;
+                    }
+                }
+
+                &.gv-podcast-card {
+                    //height: 300px;
+                    .gv-card-graphic {
+                        //height: 220px;
+                    }
+                }
+            } // Desktop
+            .gv-card-graphic {
+                width: 100%;
+                position: relative; //background: #767676;
+                cursor: pointer;
+
+                img {
+                    width: 100%;
+                }
+
+                &:after {
+                    position: absolute;
+                    right: -10px;
+                    top: 0;
+                    height: 100%;
+                    content: "";
+                    display: block;
+                    border-left: 1px solid #646464;
+                }
+            }
+            .gv-card-footer {
+                width: 100%;
+                padding-top: 10px;
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .gv-footer {
+        //background: #0000ff; //height: 300px;
+        font-size: 0;
+        border-top: 1px solid #646464;
+        padding-bottom: 100px;
+
+        .gv-footer-inner {
+            border: none;
+        }
+
+        .gv-footer-section {
+            width: calc(50% - 20px);
+            background: #121212;
+            margin: 10px 10px 0 10px;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            &:before {
+                content: "";
+                display: block;
+                height: 100%;
+                border-left: 1px solid #646464;
+                position: absolute;
+                left: -10px;
+                top: 0;
+            }
+
+            &:nth-of-type(odd) {
+            	 &:before {
+            	 display: none;
+            	  @include mq(leftCol) {
+            	  	display: block;
+            	  }
+            	}
+
+            }
+        }
+    }
 }
