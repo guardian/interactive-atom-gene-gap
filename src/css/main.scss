@@ -6,6 +6,11 @@
 //@import "embed";
 // Uncomment for full screen (including immersive article main media)
 //@import "fullscreen";
+
+footer {
+    display: block!important;
+}
+
 .element-atom,
 .interactive-atom {
     margin: 0 !important;
@@ -13,12 +18,24 @@
 
 .interactive-wrapper {
 
+	.gv-link {
+		text-decoration: none;
+		cursor: pointer;
+		position: absolute;
+		z-index: 999;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+
     background-color: #121212;
     color: #fff;
     vertical-align: top;
 
     h1 {
     	font-size: 50px;
+    	line-height: 55px;
     	font-family: $f-serif-headline;
     	top: -25px;
     	display: block;
@@ -26,8 +43,9 @@
     }
 
     h2 {
-        font-size: 30px;
-        padding: 0;
+        font-size: 24px;
+         line-height: 28px;
+        padding: 3px 0 5px 0;
         margin: 0;
         font-family: $f-serif-headline;
 
@@ -35,6 +53,7 @@
     }
     p {
         font-size: 16px;
+        line-height: 24px;
         margin: 0;
         padding: 0;
         font-family: $f-serif-text;
@@ -101,7 +120,7 @@
         font-size: 0;
 
         h2 {
-            font-size: 30px;
+            //font-size: 30px;
              @include mq(mobileLandscape) {
             	margin: 0 10px 0 10px;
             }
@@ -128,6 +147,23 @@
         .gv-cards {
             vertical-align: top;
             padding-bottom: 20px; //padding-left: 10px;
+            position: relative;
+
+             @include mq(leftCol) {
+
+            &:before {
+            	position: absolute;
+            	content: "";
+            	display: block;
+            	height: 30px;
+            	left: -1px;;
+            	top: 0;
+            	border-left: 1px solid #646464;
+            }
+
+        }
+
+
             .gv-card:last-of-type {
 
                 margin-right: 0;
@@ -173,7 +209,7 @@
         }
 
         .gv-card {
-
+        	position: relative;
             background: #121212;
             margin: 10px 10px 0 10px;
             display: inline-block;
@@ -243,9 +279,12 @@
             }
             .gv-card-footer {
                 width: 100%;
-                padding-top: 10px;
-                span {
-                    font-size: 14px;
+                padding: 10px 0 10px 0;
+                // span {
+                //     font-size: 14px;
+                // }
+                p {
+                	margin: 0;
                 }
             }
         }
@@ -261,21 +300,38 @@
             border: none;
         }
 
+
+
         .gv-footer-section {
-            width: calc(50% - 20px);
+            //width: calc(50% - 20px);
+            width: 100%;
+            margin: 0;
             background: #121212;
-            margin: 10px 10px 0 10px;
+            //margin: 0 10px 0 10px;
             display: inline-block;
             vertical-align: top;
             position: relative;
+            border-bottom: 1px solid #646464;
+            padding-bottom: 20px;
+
+            &.gv-last {
+            	padding-bottom: 0;
+            	border-bottom: none;
+            }
+
+            @include mq(mobileLandscape) {
+            	width: calc(50% - 20px);
+            	margin: 0 10px 0 10px;
+            	padding-bottom: 0;
+            	border-bottom: none;
             &:before {
                 content: "";
                 display: block;
-                height: 100%;
+                height: calc(100% - 10px);
                 border-left: 1px solid #646464;
                 position: absolute;
                 left: -10px;
-                top: 0;
+                top: 10px;
             }
 
             &:nth-of-type(odd) {
@@ -287,6 +343,8 @@
             	}
 
             }
+
+        }
         }
     }
 }
