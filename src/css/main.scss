@@ -35,29 +35,55 @@ footer {
     vertical-align: top;
 
     h1 {
-    	font-size: 50px;
-    	line-height: 55px;
+    	font-size: 40px;
+    	line-height: 45px;
     	font-family: $f-serif-headline;
-    	top: -25px;
+    	top: -15px;
+        bottom: 0;
     	display: block;
     	position: relative;
+        height: 1px;
+        span {
+            position: absolute;
+            display: block;
+            bottom: 0;
+        }
+          @include mq(desktop) {
+        font-size: 50px;
+        line-height: 55px;
+
+        &:before {
+            content: "";
+            display: block;
+            height: 57px;
+            top: -42px;
+            left: -11px;
+            position: absolute;
+            border-left: 1px solid #646464;
+        }
+        }
     }
 
     h2 {
-        font-size: 24px;
-         line-height: 28px;
+        font-size: 20px;
+         line-height: 24px;
         padding: 3px 0 5px 0;
         margin: 0;
         font-family: $f-serif-headline;
+         @include mq(wide) {
+        font-size: 24px;
+         line-height: 28px;
+        }
 
 
     }
     p {
         font-size: 16px;
-        line-height: 24px;
+        line-height: 23px;
         margin: 0;
         padding: 0;
         font-family: $f-serif-text;
+        color: #dcdcdc;
     }
 
     .gv-button {
@@ -93,16 +119,21 @@ footer {
         z-index: 2;
         .gv-header-text {
             padding-bottom: 20px;
-            margin-top: -50px;
+            //margin-top: -50px;
             padding-left: 0;
+            position: relative;
              @include mq(mobileLandscape) {
             	padding: 0 10px 40px 10px;
+            }
+
+            p {
+                padding-top: 5px;
             }
         }
         .gv-header-background {
             width: 100%;
             height: 250px;
-            background-image: url('<%= path %>/assets/imgs/header-1.png');
+            //background-image: url('<%= path %>/assets/imgs/header-1.png');
             background-position: 30%;
             background-size: cover;
             @include mq(tablet) {
@@ -112,6 +143,24 @@ footer {
             @include mq(desktop) {
             	background-position: center;
             }
+
+            &.gv-header-image-1 {
+                background-image: url('<%= path %>/assets/imgs/header-1.png');
+            }
+
+            &.gv-header-image-2 {
+                background-image: url('<%= path %>/assets/imgs/header-2.png');
+            }
+
+            &.gv-header-image-3 {
+                background-image: url('<%= path %>/assets/imgs/header-3.png');
+            }
+
+            &.gv-header-image-4 {
+                background-image: url('<%= path %>/assets/imgs/header-4.png');
+            }
+
+              
         }
     }
 
@@ -131,9 +180,16 @@ footer {
             
         }
         p {
-            //font-size: 14px;
+             font-family:$f-serif-headline;
+            font-size: 14px;
+            line-height: 18px;
+            color: #adadad;
             @include mq(mobileLandscape) {
             	margin: 0 10px 0 10px;
+            }
+             @include mq(desktop) {
+                 font-size: 16px;
+                line-height: 20px;
             }
               @include mq(leftCol) {
             	margin: 0 10px 0 0;
@@ -149,6 +205,7 @@ footer {
             vertical-align: top;
             padding-bottom: 20px; //padding-left: 10px;
             position: relative;
+            max-width: 960px;
 
              @include mq(leftCol) {
 
@@ -280,7 +337,7 @@ footer {
             }
             .gv-card-footer {
                 width: 100%;
-                padding: 10px 0 10px 0;
+                padding: 8px 0 10px 0;
                 // span {
                 //     font-size: 14px;
                 // }
@@ -299,6 +356,31 @@ footer {
 
         .gv-footer-inner {
             border: none;
+            position: relative;
+
+            display: none;  // COMMENT THIS OUT TO SHOW FOOTER PARAGRAPHS
+
+            @include mq(leftCol) {
+
+            &:before {
+                position: absolute;
+                content: "";
+                display: block;
+                height: 30px;
+                left: 0;
+                top: 0;
+                border-left: 1px solid #646464;
+            }
+
+        }
+        }
+
+         p {
+             font-family:$f-serif-headline;
+            font-size: 16px;
+            line-height: 20px;
+            color: #adadad;
+
         }
 
 
@@ -339,7 +421,8 @@ footer {
             	 &:before {
             	 display: none;
             	  @include mq(leftCol) {
-            	  	display: block;
+            	  	//display: block;
+                    display: none;
             	  }
             	}
 
