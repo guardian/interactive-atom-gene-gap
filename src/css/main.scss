@@ -52,6 +52,10 @@ footer {
         font-size: 50px;
         line-height: 55px;
 
+        }
+
+          @include mq(leftCol) {
+
         &:before {
             content: "";
             display: block;
@@ -116,7 +120,7 @@ footer {
         //height: 300px;
         position: relative;
         vertical-align: top;
-        z-index: 2;
+        z-index: 1;
         .gv-header-text {
             padding-bottom: 20px;
             //margin-top: -50px;
