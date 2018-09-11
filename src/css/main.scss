@@ -8,7 +8,7 @@
 //@import "fullscreen";
 
 footer {
-    display: block!important;
+    //display: block!important;
 }
 
 .element-atom,
@@ -136,9 +136,105 @@ footer {
     .gv-header {
         //background: #ff0000;
         //height: 300px;
-        position: relative;
+
+        .gv-header-inner {
+             position: relative;
+        }
+
+         position: relative;
         vertical-align: top;
         z-index: 1;
+
+            .meta {
+            display: inline-block;
+           width: calc(100% - 20px);
+             margin-left: 10px;
+            vertical-align: top;
+            
+            margin-top: 4px;
+
+            @include mq(tablet) {
+                  width: 220px;
+                  margin-right: 20px;
+                  margin-left: 0;
+                  right: 0;
+                  top: 0;
+                  position: absolute;
+
+            }
+
+            @include mq(wide) {
+                 margin-right: 100px;
+            }
+
+            .meta__date {
+                color: #ececec;
+                padding: 2px 0 12px;
+                font-size: 14px;
+                line-height: 22px;
+                font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                line-height: 20px;
+            }
+
+            .meta__date:after {
+                content: '';
+                width: 12px;
+                height: 12px; 
+                background-image: url("<%= path %>/assets/clock.svg");
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                display: block;
+                float: left;
+                margin-right: 4px;
+                margin-top: 2px;
+            }
+
+            .meta__social {
+                padding-top: 4px;
+                border-top: solid 1px #646464 !important;
+
+                .interactive-share[data-network='facebook'] {
+                    background-image: url("<%= path %>/assets/facebook.svg");
+                }
+
+                .interactive-share[data-network='twitter'] {
+                        background-image: url("<%= path %>/assets/twitter.svg");
+                }
+
+                .interactive-share[data-network='email'] {
+                        background-image: url("<%= path %>/assets/mail.svg");
+                }
+
+                .interactive-share {
+                    background-color: transparent;
+    border: 1px solid #999;
+    opacity: 0.7;
+    height: 32px;
+    width: 32px;
+    border-radius: 34px;
+    
+    display: inline-block;
+    
+    cursor: pointer;
+    outline: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+
+    &:hover {
+        opacity: 1;
+    }
+
+
+
+
+                }
+            }
+
+        }
+
+       
         .gv-header-text {
           max-width: 460px;
             padding-bottom: 20px;
