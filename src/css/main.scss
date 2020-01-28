@@ -7,9 +7,6 @@
 // Uncomment for full screen (including immersive article main media)
 //@import "fullscreen";
 
-footer {
-    //display: block!important;
-}
 
 .element-atom,
 .interactive-atom {
@@ -174,6 +171,9 @@ footer {
                 line-height: 22px;
                 font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
                 line-height: 20px;
+                @include mq(mobileLandscape){
+                    padding: 2px 10px 12px;
+                }
             }
 
             .meta__date:after {
@@ -191,8 +191,11 @@ footer {
             }
 
             .meta__social {
-                padding-top: 4px;
+                padding: 4px 0 0 0;
                 border-top: solid 1px #646464 !important;
+                @include mq(mobileLandscape){
+                    padding: 4px 10px 0 10px;
+                }
 
                 .interactive-share[data-network='facebook'] {
                     background-image: url("<%= path %>/assets/facebook.svg");
@@ -252,9 +255,13 @@ footer {
         .gv-header-background {
             width: 100%;
             height: 350px;
-            //background-image: url('<%= path %>/assets/imgs/header-1.png');
-            background-position: 20%;
+            background-image: url("https://uploads.guim.co.uk/2020/01/24/GeneGap_Hero_2.jpg");
+            background-position: center;
             background-size: cover;
+            background-repeat:no-repeat;
+            display:flex;
+            justify-content: flex-start;
+            align-items: flex-end;
             @include mq(tablet) {
             	//background-position: 30%;
             	height: 450px;
@@ -262,24 +269,29 @@ footer {
             @include mq(desktop) {
             	background-position: center;
             }
-
-            &.gv-header-image-1 {
-                background-image: url('<%= path %>/assets/imgs/header-1.png');
+        }
+        .gene-gap-title {
+            width:170px;
+            height:auto;
+            margin-left:2px;
+            margin-bottom:0;
+            padding-bottom:12px;
+            @include mq(phablet){
+                margin-left:10px;
             }
-
-            &.gv-header-image-2 {
-                background-image: url('<%= path %>/assets/imgs/header-2.png');
+            @include mq(tablet){
+                width:200px;
             }
-
-            &.gv-header-image-3 {
-                background-image: url('<%= path %>/assets/imgs/header-3.png');
+            @include mq(desktop){
+                margin-left:calc((100vw - 1024px) / 2 + 30px);
             }
-
-            &.gv-header-image-4 {
-                background-image: url('<%= path %>/assets/imgs/header-4.png');
+            @include mq(leftCol){
+                margin-left:calc((100vw - 1140px) / 2 + 170px);
+                border-left: 1px solid #fff;
             }
-
-
+            @include mq(wide){
+                margin-left:calc((100vw - 1300px) / 2 + 250px);
+            }
         }
     }
 
@@ -467,6 +479,8 @@ footer {
         }
     }
 
+    
+
     .gv-footer {
         //background: #0000ff; //height: 300px;
         font-size: 0;
@@ -548,6 +562,41 @@ footer {
             }
 
         }
+        }
+    }
+}
+
+
+// .gv-card-video {
+//     width: calc(75% - 20px);
+// }
+
+.gv-film-card {
+    width:100% !important;
+    @include mq(mobileLandscape){
+        width:calc(100% - 20px) !important;
+    }
+    @include mq(phablet){
+        width:calc(100% - 20px) !important;
+    }
+    @include mq(tablet){
+        width:calc(75% - 20px) !important;
+    }
+}
+
+.gv-header-title {
+    max-width:1300px;
+    margin:auto;
+}
+
+.gv-left-column {
+    p {
+        width:calc(100% - 10px);
+        @include mq(phablet){
+            width:calc(100% - 20px);
+        }
+        @include mq(leftCol){
+            width:75%;
         }
     }
 }
