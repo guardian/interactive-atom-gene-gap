@@ -52,7 +52,7 @@
   "dependencies": {
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mustache": "^2.3.0",
     "promise-polyfill": "^6.0.2",
     "request": "^2.88.0",
